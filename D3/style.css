@@ -1,0 +1,109 @@
+/* importo font google per poi andare nel body con il comando font-family e renderlo font predefinito*/
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap');
+
+/* Selector specificity 
+
+L'ordine di potenza è 
+1)inline style 
+2) id
+3)class
+
+*/
+
+/* .myh-4 {
+    margin:4em
+    }
+
+    */
+    #special-p {
+        font-size: 10em;
+   
+    }
+
+    .special-p{
+        font-size: 10em;
+    }
+
+
+    /* con il seguente comando block tu fai in modo di mettere gli elementi del form da compilare in colonna 
+    NB inoltre con una larghezza del 100% tu fai in modo che i campi di testo prendano tutta la lunghezza della riga
+    ma (MALE) ma in compenso se rimpicciolisci la pagina anche essi lo faranno (BENE)*/
+    .input-field {
+
+        display:block;
+        width: 100%;
+        
+    }
+
+    /* tale comando serve invece x correggere il difetto sopra per cui gli elementi del form hanno tutta a lunghezza della pagina 
+    PERO' mantenendo il fatto che se rimpicciolisci la pagina anche essi lo faranno */
+
+    #footer-wrapper {
+        max-width: 400px;
+        margin: 0 auto; tale 
+        /* margin: 0 auto è una scorciatoria che significa che il margine sopra e sotto è 0 mentre ai lati è automatica ed equidistante dal margine della pagina */
+
+    }
+
+
+    h4 {
+    margin: 0;
+    }
+
+    h4 {
+    margin: 2em;
+    }
+
+    
+    body {
+        margin: 0;
+        font-family: 'Roboto',sans-serif ;
+
+    } 
+
+    
+    /* poichè l'immagine è contenuta nel body, 
+    l'immagine prenderà la larghezza del body
+    ossia dell' elemento padre 
+    
+    questo è importante perchè se io rimpicciolisco il browser TV, PC, smartphone
+    anche l'immagine si riduce proporzionalmente e FUNZIONA BENE*/
+
+    img {
+
+        width: 100% ;
+    }
+
+    .inner-content {
+        padding: 12px;
+    }
+
+    h1, h4{font-family: 'Lato', sans-serif;}
+
+    /* Pseudo selectors, ad esempio un titolo o un bottone cambiano colore se ci passi sopra con il mouse */
+    h1:hover{
+        color: red;
+    }
+
+
+
+
+    /* per inserire un gradiente sfumato alla mia unordered list
+    NB 121deg significa la DIREZIONE da cui parte la sfumatura  */
+    ul {
+        background: linear-gradient(121deg,white,blue);
+
+    }
+
+
+
+    
+   
+ 
+
+
+
+
+

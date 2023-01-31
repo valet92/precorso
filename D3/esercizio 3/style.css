@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;1,600&family=Prata&display=swap');
+
+.main-section{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: rgb(240, 250, 247);
+   
+    
+}
+
+.image-container{
+    height: 500px;
+    background-image: url(http://www.sanvitochietino.info/images/mappatrab/4.jpg);
+    background-repeat: no-repeat;
+    width: 100%;
+    background-size: 100%;
+    /* molto importante x adattare la pagina se si 
+    restringe lo schermo */
+    
+}
+
+h1{
+    font-family: 'Prata', serif;
+    font-size: 64px;
+    font-weight: 400;
+    margin-bottom: 0;
+
+}
+
+
+h3{
+    font-family: 'Prata', serif;
+    font-size: 24px;
+    font-weight: 400;
+    margin-top: 0;
+    margin-bottom: 0;
+
+
+}
+
+body{
+
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+a:link{
+    color: rgb(0, 125, 209);
+    text-decoration: none;
+
+}
+
+a:visited {
+    color:rgb(107, 0, 128);
+} 
+
+a:hover {
+    font-weight: 600;
+    font-style: italic;
+    
+}
+
+a:active{color: rgb(233, 132, 0);}
+
+h6{
+    padding: 22px;
+    margin-top: 56px;
+    margin-bottom: 0px;
+    color: white;
+    border-radius: 6px;
+    background: linear-gradient(45deg,rgb(201, 153, 64),rgb(37, 145, 207));
+}
+
+ul {
+    /* list-style-type: none;  toglie i pallini di default */
+    list-style: upper-roman;
+    padding-left: 22px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    border-bottom: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #dfdfdf;
+    
+}
+
+footer{
+    background-color: rgb(40, 41, 43);
+    padding: 16px;
+    
+
+}
+
+
+/* assegnando una classe footer-center al mio footer, il link al suo interno
+lo posso centrare grazie al comando text-align */
+.footer-center{
+    text-align: center;
+}

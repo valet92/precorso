@@ -1,0 +1,233 @@
+/* 1)x creare una sidebar a sinistra e una topbar in alto,sto applicando uno style flex all'intero body 
+per spostare gli elementi che sono in colonna, sulla stessa riga,
+quindi otterrò che la sidebar rimane al suo posto in alto a sinistra, mentre la "main" (che contiene sia
+il topbar che il content) si mette di fianco sulla stessa riga.
+NB la main si è spostata di fianco sulla stessa riga, ma i due div (topbar e content)che contiene rimarranno in colonna.
+
+2)elimino il margine del body
+
+3)rendere la sidebar alta come tutto il documento height: 100vh; dove vh è visual height
+
+4)main deve stendersi su tutto lo spazio disponibile a destra(tutto ciò che non è sidebar ovviamente)
+quindi poichè l'elemento main è figlio dell'elemento body, imposto una width di 100% cioè vale a dire che main 
+sara grande come tutta la larghezza del padre body. (se vedi ispeziona ti rendi conto)
+
+5) anche il content (contenuto nel main) deve avere una altezza pari al 100% del suo contenitore padre main(vedi ispeziona)
+
+6)inserire le icone nella sidebar
+-)andare sul sito ionicons e sotto la voce installation copiare 
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+alla fine del body, serve x permettere a visual studio di imporatre le icone(stessa cosa vista x i caratteri) 
+-copiare i codici della icone che mi interessano nella sidebar di html cancellando la parola "sidebar" <ion-icon name="menu-sharp"></ion-icon> 
+
+7)mettere le icone della sidebar in verticale con display: flex; (di base)
+    e poi con flex-direction: column;
+
+8)per gestire meglio le icone inserirle all'interno di div cosi ad esempio puoi da qui inserire dei paragrafi p, modifcare la spaziatura, dimensione ecc
+
+9)assegno una classe sidebar-icon a ogni div che contiene le icone della sidebar
+
+10)editare le mie icon qui nel css editando i div che le contengono con .sidebar-icon {}
+
+11)inserire dei paragrafi<p>Home</p> <p>Explore</p> <p>Library</p> dentro ad ogni div relativo alle icone
+
+12)con il SELETTORE AVANZATO .sidebar-icon p {} io posso andare a selezionare direttamente i paragrafi p appena creati 
+che si trovano all'interno della sidebar
+andiamo a impostare un margine pari a zero ai nostri p
+in modo tale da porre le scritte home explore library più vicine all'icone
+
+13) a questo punto dobbiamo fare una piccola correzione con lo stesso meccanismo di SELETTORE AVANZATO.
+Lo scopo è quello di selezionare direttamente le icone contenute nella sidebar.
+In pratica al punto 10) io ho impostato una dimensione di  font-size: 1.5em; per OGNI DIV che conteneva le icone,
+ma per essere corretti dovrei impostare la dimensione DELLE ICONE con font-size: 1.5em. (non del div che le contiene)
+quindi taglio tale dimensione font-size: 1.5em; dal mio semplice div con classe .sidebar-icon e la incollo 
+in un nuovo selettore avanzato che prende in considerazione direttamente le icone con nome "ion-icon", contenute nei div con classe -sidebar-icon
+Ecco la proprietà: .sidebar-icon ion-icon {}
+
+14)le icone ora sono allineate verticalmente, quindi sopra hai l'icona e sotto il paragrafo.
+il problema è che noi vogliamo allineare le icone con i paragrafi orizzontalmente,
+cioè far si che l'icona sia perfettamente centrata sopra il paragrafo e non spostata tutta a sinistra.
+Per fare ciò dovremo fare due passaggi:
+-visto che la nostra sidebar (contenente tutti i div con le icone al loro interno) 
+ha flex-direction: column;(punto7) NON possiamo usare justify-content: center; perchè tale proprietà riguarda la main axis
+che in tale caso non è raw/riga (default) ma è column, quindi dovremo usare align-items: center che agisce sulla cross axis 
+che è perpendicolare alla main axis, ed in tale caso la cross axis è orizzontale (visto che la main è una column(verticale))
+
+-adesso similmente a quanto fatto sopra dobbiamo proprio centrare le icone con i paragrafi sottostanti..
+Per far ciò dovremo assegnare di base ad ogni div con classe sidebar-icon un display flex e poi 
+dargli una flex-direction: column e un align-items- center
+
+15) importo nuovi font Roboto @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+sopra il body e applico questa nuova font family a tutto il body con il comando font-family: 'Roboto', sans-serif;
+
+16)ora che la sidebar è finita concentriamoci sulla top-bar
+La top-bar è fatta da 3 blocchi: icona you tube in alto a sinistra, input-field con micorfono al centro 
+e alla fine un blocco in alto a destra con 3 icone
+-creo una cartella assets dentro D5 dove inserirò tutte le immagini da caricare nel progetto
+-creo l'altezza/spessore giusto per la topbar con #topbar{height: 8vh;}
+-importo logo you tube nel div con class topbar
+-assegno un id "logo" alla mia immagine per ridimensionarla nel css 
+-vado nel css e con il comando #logo{height:100% ;} io stabilisco che il mio logo img 
+prende la stessa altezza del suo contenitore div con id topbar
+
+17) assegno nel css il comando display: flex; alla mia top-bar per far disporre i successivi div/blocchi
+in riga/raw(di base) nella topbar
+
+18)creo un ulteriore div/blocco contenitore con id="search-wrapper" nella mia topbar (html) che rappresenta il blocco centrale
+che contiene l'input field/barra di ricerca e microfono con il seguente comando:
+<div id="search-wrapper" >
+    <input type="text" placeholder="search on Youtube.." >
+</div>
+
+19)sempre all'interno di questo blocco centrale con id="search-wrapper" devo porre un bottone con la forma di una lente di ingranidmento,
+Quindi creo il button. all'interno ci metto un ulteriore div e dentro al div ci inserisco la lente di ingrandimento importata dal sito
+ <button>
+        <div>
+            <ion-icon name="search-sharp"></ion-icon>
+        </div>
+</button>
+
+20)inserire icona con microfono. Quindi fuori dal mio button, ma sempre dentro al mio div search-wrapper 
+creo un altro div e ci inserisco l'icona del microfono importata dal sito
+
+21)Ora però io voglio che il mio div search-wrapper (tipo block), il bottone con la lente d'ingrandimento, e il terzo elemento microfono
+che si allineino orizzontalmente 
+quindi qui nel css eseguo questo comando:
+ 
+#search-wrapper {
+    display: flex;
+    height: 50%;
+}
+
+display:flex serve per predisporre gli elementi sulla riga/row (base) 
+ma poichè la mia barra di navigazione/<div id="search-wrapper" è contenuta a sua volta 
+nel <div id="topbar", tale <div id="search-wrapper" mi ha preso l'altezza del suo padre ma eratroppo alta,
+quindi ho impostato un altezza al 50%
+
+22)ora niente paura, stiamo parlando sempre di top-bar
+Gli elementi cosi disposti non sono messi per niente bene in alto, però prima di poterli distribuire equidistanti
+tra di loro devo andare ad inserire le ultime tre icone/elementi in alto a destra (telecamera, campanella,omino nero)
+Quindi DOPO di ciò potrò distribuire gli elementi in alto (icona you tube a sinistra),(barra di ricerca, con lente d'ingrandimento e micorfono al centro)
+ed infne (telecamera, campanella e omino nero)
+
+23)andiamoci a inserire le icone della telecamera, campanella e omino nero)
+
+da qui in poi il meccanismo è uguale quindi devi solo applicare quello imparato e poi allineo i tre blocchi di elementi della top bar
+
+24)ingrandire icona microfono
+
+25)centrare la lente d'ingrandimento al centro del pulsante 
+NB prima di fare ciò conviene che nel mio html elimino il div che contiene il pulsante 
+e assegnare un id id="search-btn" al mio button per otttenere :
+<button id="search-btn">                    
+    <ion-icon name="search-sharp"></ion-icon>                    
+</button>
+
+questa eliminazione di div si spiega perche il mio button è di per se un div e se lo lasciassi non potrei allineare 
+il bottone al centro del pulsante
+
+poi qui nel css faccio così:
+#search-btn {
+    padding: 0 0.6em; 
+    font-size: 1.3em; 
+    display: flex;
+    align-items: center;
+
+}
+
+26)assegno un cursor pointer alle icone della sidebar cioè se io ci passo sopra con il mouse 
+la freccia bianca divena una manina (pseudo selector)
+con il comando cursor: pointer;
+
+
+
+*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+body{
+    display: flex;
+    margin:0;
+    height: 100vh;
+    font-family: 'Roboto', sans-serif;
+    
+}
+
+#main{
+    width: 100%;
+}
+
+#content {
+    height: 100%;
+}
+
+#sidebar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.sidebar-icon {
+    padding: 2em;
+    /* font-size: 1.5em; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+.sidebar-icon p {
+    margin: 0;
+}
+
+.sidebar-icon ion-icon {
+    font-size: 1.5em;
+
+}
+
+#topbar{
+    height: 8vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+#logo{
+     height:100% ;  /*ERRORE STRANO dovrei impostare un altezza del 50% ma sarebbe troppo piccolo il mio logo quindi ho deciso di mettere 100% */
+}
+
+#search-wrapper {
+    display: flex;
+    height: 50%;
+}
+
+.topbar-icons {
+    display: flex;
+    
+    
+}
+
+.topbar-icons ion-icon {
+    font-size: 1.5em;
+    padding: 0 0 0.3em;
+
+}
+
+#mic-icon ion-icon {
+    font-size: 1.5em;
+    
+
+}
+
+#search-btn {
+    padding: 0 0.6em; 
+    font-size: 1.3em; 
+    display: flex;
+    align-items: center;
+
+}
+
+#mic-icon {
+     margin: 1 0.6em; /*sposto l'icona del microfono (o meglio il div che la contiene un pò piu a sinistra) */
+}

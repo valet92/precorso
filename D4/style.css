@@ -1,0 +1,54 @@
+.child{
+    width: 100px;
+    height: 100px;
+    color: white;
+    background-color: orange;
+    margin: 5px; /*separa i blocchi gli uni dagli altri */
+    font-size: 2em;
+    padding: 10px; /*sposta i numeri dentro i blocchi piu al centro */
+}
+
+/* 
+Il Flexbox è uno stile che funziona con dei container (div) e degli items/child al suo interno 
+il Flexbox funziona su due assi main axis e cross axis. 
+La main axis viene definita dalla proprietà display:flex (dove row/riga è di default), 
+per poi andare a modificarla con una nuova proprietà flex-direction: column, row-reverse, column-reverse
+La cross axis è sempre la perpendicolare della main axis, quindi se la main axis è orizzontale, allora la cross axis sarà verticale e viceversa
+
+con la proprietà flex-wrap: wrap; invece si stabilisce che gli elementi che non entrano nella riga vanno a capo con le dimensioni che ho stabilito
+anzichè entrare tutti nella stessa riga deformandosi/stringendosi
+
+la propeità justify lavora sempre sulla main-axis e ti permette di spostare i tuoi elementi all'inizio (justify-content: flex-start;) al centro(justify-content: center)
+o alla fine justify-content: flex-end). altri comandi sono justify-content: space-between, justify-content: space-around(imposta uno spazio tra gli elementi e un'altro spazio di misura diversa ai bordi), 
+justify-content: space-evenly (che imposta uno spazio identico sia tra gli elementi che ai margini)
+
+la proprietà align-items lavora sulla cross-axis e ti permette IN QUESTO CASO di lavorare sull'asse verticale, ti accorgi di come funziona
+quando hai elementi di ALTEZZE diverse. 
+Se volessi spostare gli elementi più piccoli al centro rispetto ALLA ALTEZZA DELLA RIGA E DELLA PAGINA(align-items: center;), se volessi impostare gli elementi piu piccoli
+in basso rispetto ALLA ALTEZZA DELLA RIGA E DELLA PAGINA uso (align-items: end), ecc 
+
+QUINDI JUSTIFY-CONTENT (main axis) e ALIGN-ITEMS(cross axis) sono gemelli complementari
+
+
+la proprietà align-content lavora anche essa sulla cross-axis e ti permette IN QUESTO CASO di lavorare sull'asse verticale ti accorgi di come funziona 
+quando hai elementi di LARGHEZZE diverse, quando IL CONTAINER è PIU ALTO DEGLI ELEMENTI AL SUO INTERNO E ANCHE QUANDO HAI ALEMENTI CHE VANNO A CAPO RIGA (flex-wrap: wrap;).
+Se volessi spostare in blocco tutti gli elementi in basso rispetto ALLA ALTEZZA DELLA PAGINA uso (align-content: flex-end;
+se volessi spostarli tutt in alto uso (align-content: flex-start),ecc.
+
+Tutte le proprietà citate fino ad adesso si riferivano al container/elemento contenitore padre, ma anche per i singoli elementi interni/figli
+ci sono delle proprietà align-self, order, flex-grow, flex-shrink, flex-basis
+
+align-self permette a uno o tutti i figli di uscire dalle proprietà del parent che li contiene, per allinearsi in un altro modo
+normalmente questo è INLINE style
+
+
+
+*/
+#container{
+display: flex;
+flex-wrap: wrap;
+/* 85vh sta per 85 % view height cioè una altezza del mio container che occupa 85% della dimensione del mio container */
+height: 85vh;
+justify-content: center;
+align-items: center;
+}

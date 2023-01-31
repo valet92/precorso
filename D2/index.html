@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form e input fields</title>
+</head>
+<body>
+    <h1>Interazioni con l'utente</h1>
+
+ 
+
+
+    <!-- INPUT CAMPO DI TESTO METODO 1
+                
+        input type="text" è di tipo in-line significa che tutti i campi di testo saranno sulla stessa riga
+        <input type="text" placeholder="il tuo nome" > 
+        
+        viceversa per mettere i campi di testo uno sopra l'altro serve la proprietà display block 
+        <input type="text" placeholder="il tuo nome" style="display: block;" >
+    
+    -->
+
+    <!-- INPUT METODO 2 
+
+        creo un div che è già un elemento di tipo block e gli mettiamo 
+        al suo interno l'elemetno <input type="text" placeholder="il tuo nome" > 
+        cioè l'elemento campo di testo
+    
+    -->
+
+    <!-- IL TAG FORM serve a collegare tra loro vari tag INPUT e con il comando onsbubmit, si stabilisce cosa succede
+        quando i campi di testo sono stati compilati e si clicca su un buttton  con attributo submit (contenuto sempre nel form)
+
+         -->
+
+
+<form onsubmit="alert('form inviato')">
+    <div>
+        <input type="text" placeholder="il tuo nome" >
+    </div>
+    <div>
+        <input type="email" placeholder="la tua email" >
+    </div>
+    <div>
+        <input type="password" placeholder="la tua password" >
+    </div>
+    <div>
+        <input type="checkbox">
+    </div>
+    <div>
+        <input type="color" >
+    </div>
+    <div>
+        <input type="time" >
+    </div>
+    <div>
+        <input type="datetime-local" >
+    </div>
+    <div>
+        <input type="range">
+    </div>
+    <button type="submit" >INVIA FORM</button>
+</form>
+
+<!-- Se creassi un button AL DI FUORI  del form non si azionerebbe il form onsubmit con l'alert 'FORM INVIATO', perchè questo riguarda tutto ciò
+che è DENTRO al form.
+L'unico modo che ho per attivare il button FUORI dal form e che quindi mi azioni un altro alert 'come stai?' è fare in modo che reagisca 
+a un evento, come ad esempio il click del mouse -->
+
+<button onclick="alert('come stai?')" >CIAO</button>
+
+
+   
+        
+        
+        
+
+
+</body>
+</html>

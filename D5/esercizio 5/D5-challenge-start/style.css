@@ -1,0 +1,46 @@
+
+
+.content{
+    display: flex;
+    flex-wrap: wrap; 
+    height: 100vh;
+    padding-top: 35px;
+    padding: 75px;
+    justify-content: space-around;
+
+}
+
+.inner-content{
+    height: 210px;
+    width: 340px;
+    padding: 15px;
+}
+
+.child-img{
+    height: 100%;
+    width: 100%;
+    background-size: 100%;
+}
+
+.paragraph-father{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    padding-top: 0.5em;
+    max-height: 2em;
+    cursor: pointer;
+    
+    
+}
+
+
+.epicode-icon{
+    height: 2em;
+}
+
+.paragraph-child {
+    
+    padding-left: 0.5em;
+   
+}
+
